@@ -1,4 +1,5 @@
-import mysql.connector
+# import mysql.connector
+import datetime
 import os
 import random
 import sys
@@ -45,7 +46,8 @@ def generateEmail(fname, lname):
 
     firstLen = random.randint(1,len(fname))
     lastLen = random.randint(1,len(lname))
-    # Could expand this to use non-Yahoo email
+
+    # Generate an email consisting of a random amount of characters in the first and last name, followed by a number, followed by a domain    
     email = fname[0:firstLen]+lname[0:lastLen]+str(random.randint(10000,99999))+"@"+mailServers[random.randint(0,len(mailServers)-1)]
     return(email)
 
@@ -60,10 +62,10 @@ def main():
     state = []
     zip = []
 
+    # Current ethnicities
     ethnicityTypes = ["chinese","japanese","korean","indian","arabic","spanish","american"]
 
-    # Could probably do this with a 2D array if I have time
-
+    # Lists to hold last and first names of each ethnicity
     chineseLast = []
     japaneseLast = []
     koreanLast = []
@@ -80,7 +82,7 @@ def main():
     spanishFirst = []
     americanFirst = []
 
-    zipFileName = "ZIP.txt"
+    zipFileName = "ZIP.csv"
     streetFileName = "streets.txt"
     streetTypeFileName = "streetTypes.txt"
     outputFileName = "SQLFile.sql"
@@ -122,6 +124,7 @@ def main():
         else:
             print("Exiting program, please rename",outputFileName,".")
             sys.exit()
+
     # Open SQLfile.sql to store script
     outFile = open(outputFileName, "w")
 
@@ -168,17 +171,20 @@ def main():
 
     lenClients = len(str(numClients))
 
-    # Start by creating schema and creating table
+    # Add date/time information
+    outFile.write("-- Fake data set generated on " + datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + "\n")
+
+    # Creating schema (this is geared towards MySQL) and creating table
     outFile.write("CREATE SCHEMA studentTest;\n")
     outFile.write("CREATE TABLE Client (\n")
     outFile.write("    ClientNum CHAR(")
-    # Use the number of digits in the user's input to determine length of ClientNum
+    # Use the number of digits in the user's input to determine length of ClientNum (using sequential values, but character)
+    # Could do this using various data types but they are not always compatible between DBMSs
     outFile.write(str(lenClients))
     outFile.write(") PRIMARY KEY,\n")
-    # If I have time, parse array for longest value and use that instead of 15
+    # TODO: Store max length of names
     outFile.write("    LastName CHAR(15),\n")
     outFile.write("    FirstName CHAR(15),\n")
-    outFile.write("    ClientName CHAR(35) NOT NULL,\n")
     outFile.write("    Street CHAR(20),\n")
     outFile.write("    City CHAR(15),\n")
     outFile.write("    State CHAR(2),\n")
@@ -188,23 +194,28 @@ def main():
     outFile.write(");\n")
 
 
-    # Maybe pad the clientNumber?
+    # TODO: pad the clientNumber with leading 0?
     for loopCounter in range(numClients):
         ethnicity = ethnicityTypes[random.randint(0,6)]
+        # TODO: Has to be a cleaner way to do this to ensure random values 
         fnameRandom = random.randint(0,19)
         lnameRandom = random.randint(0,19)
         
+        # Tricky way to get Python to combine the variable value and array:
+        # Will be evaluated in this form: chineseFirst[3]
         command = ethnicity + "First[" + str(fnameRandom) + "]"
         firstNameValue = eval(command)
 
         command = ethnicity + "Last[" + str(lnameRandom) + "]"
         lastNameValue = eval(command)
 
-        # Could do this with global variables or passing lists but it felt sloppy
-  
+        # Create a random name, address, email, phone, and add to the output file  
         location = random.randint(0,len(zip)-1)
         streetValue = random.randint(0,len(street)-1)
         streetTypeValue = random.randint(0,len(streetType)-1)
+
+        # Generate an INSERT for the current record
+        # Doing separate inserts rather than one big insert in case of large data set
         outFile.write("INSERT INTO Client VALUES (\"" +
                       str(loopCounter + 1) +
                       "\", \"" +
@@ -232,12 +243,7 @@ def main():
     # Close the output
     outFile.close()
 
-    mydb = mysql.connector.connect(
-      host="cis.pccc.edu",
-      user="ecameron",
-      password="realpassword",
-      database="ecameron"
-    )
+    # TODO: Add connector to DBMS
 
     print("Complete!")
 
