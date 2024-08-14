@@ -1,0 +1,259 @@
+-- Fake data set generated on 2024-08-13 21:09:16
+DROP TABLE IF EXISTS Client;
+CREATE TABLE Client (
+    ClientNum CHAR(3) PRIMARY KEY,
+    LastName CHAR(15),
+    FirstName CHAR(15),
+    Street CHAR(40),
+    City CHAR(30),
+    State CHAR(2),
+    ZIPCode CHAR(5),
+    Email CHAR(75),
+    Phone CHAR(12)
+);
+INSERT INTO Client VALUES (
+    'C01', 'Hong', 'Yeo',
+    '186 Algarin Terrace',
+    'Ames', 'IA', '50012',
+    'YeoHon93962@verizon.net',
+    '857-798-5987');
+INSERT INTO Client VALUES (
+    'C02', 'Yamamoto', 'Minoru',
+    '3169 Cougar Highway',
+    'Savoonga', 'AK', '99769',
+    'MinoruYamamoto73656@gmail.com',
+    '544-554-6508');
+INSERT INTO Client VALUES (
+    'C03', 'Luo', 'Gang',
+    '2009 Burlington Highway',
+    'Villa Grove', 'IL', '61956',
+    'GaLuo40967@aol.com',
+    '539-994-7164');
+INSERT INTO Client VALUES (
+    'C04', 'Clark', 'Daniel',
+    '1994 Charlotte Road',
+    'Dixie', 'GA', '31629',
+    'DanCl91340@zohomail.com',
+    '759-912-1209');
+INSERT INTO Client VALUES (
+    'C05', 'Wilson', 'Deborah',
+    '386 Becky Court',
+    'New Orleans', 'LA', '70175',
+    'DeboWil97766@optonline.net',
+    '650-907-2982');
+INSERT INTO Client VALUES (
+    'C06', 'Xu', 'Bao',
+    '2199 Dakota Circle',
+    'Pennsboro', 'WV', '26415',
+    'BaX65141@zohomail.com',
+    '403-982-3160');
+INSERT INTO Client VALUES (
+    'C07', 'Bettar', 'Cantara',
+    '892 Topaz Boulevard',
+    'Trail', 'MN', '56684',
+    'CantaBettar75621@zohomail.com',
+    '238-531-6628');
+INSERT INTO Client VALUES (
+    'C08', 'Shimizu', 'Makoto',
+    '494 Daion Place',
+    'Oriental', 'NC', '28571',
+    'MakotoShimi82348@gmail.com',
+    '488-759-5695');
+INSERT INTO Client VALUES (
+    'C09', 'Park', 'Jung',
+    '2886 Meadow Wood Way',
+    'San Angelo', 'TX', '76906',
+    'JuPa74945@mail.com',
+    '400-550-7069');
+INSERT INTO Client VALUES (
+    'C10', 'Yamamoto', 'Toshio',
+    '8866 Labar Avenue',
+    'Iberia', 'MO', '65486',
+    'ToYamamoto24808@aol.com',
+    '414-212-2139');
+INSERT INTO Client VALUES (
+    'C11', 'Hamade', 'Lila',
+    '2061 Calaska Circle',
+    'Casa Grande', 'AZ', '85130',
+    'LiHam38963@verizon.net',
+    '291-337-7875');
+INSERT INTO Client VALUES (
+    'C12', 'Nayar', 'Rakesh',
+    '1862 Richner Lane',
+    'Painter', 'VA', '23420',
+    'RakNa66887@mail.com',
+    '397-684-4986');
+INSERT INTO Client VALUES (
+    'C13', 'Azizi', 'Majida',
+    '2364 Loganberry Court',
+    'Wortham', 'TX', '76693',
+    'MajiAz98228@aol.com',
+    '667-255-3940');
+INSERT INTO Client VALUES (
+    'C14', 'Shin', 'Yeo',
+    '5609 Don Bosco Lane',
+    'Reading', 'PA', '19604',
+    'YeoShin81331@optonline.net',
+    '968-824-1771');
+INSERT INTO Client VALUES (
+    'C15', 'Carter', 'Jennifer',
+    '5359 Jaguar Drive',
+    'Royse City', 'TX', '75189',
+    'JenCarte81949@yahoo.com',
+    '652-249-7348');
+INSERT INTO Client VALUES (
+    'C16', 'Huang', 'Lian',
+    '321 Mc Phee Boulevard',
+    'Wirtz', 'VA', '24184',
+    'LiaHuang58901@optonline.net',
+    '994-622-2549');
+INSERT INTO Client VALUES (
+    'C17', 'Takahashi', 'Toshio',
+    '1504 Meyer Drive',
+    'Amherst', 'MA', '01003',
+    'ToshTa51748@optonline.net',
+    '744-477-2823');
+INSERT INTO Client VALUES (
+    'C18', 'Kato', 'Yasuo',
+    '7159 Stanley Circle',
+    'Berkeley', 'CA', '94710',
+    'YasuKat40184@zohomail.com',
+    '469-852-7271');
+INSERT INTO Client VALUES (
+    'C19', 'Hariri', 'Pola',
+    '5092 Aaron Terrace',
+    'Vance', 'MS', '38964',
+    'PolaHari22837@aol.com',
+    '491-934-5660');
+INSERT INTO Client VALUES (
+    'C20', 'Clark', 'Eric',
+    '827 Astonshire Circle',
+    'Lake Charles', 'LA', '70616',
+    'ErClar50758@hotmail.com',
+    '889-858-8483');
+INSERT INTO Client VALUES (
+    'C21', 'Yang', 'Huan',
+    '8207 Lower Canyon Road',
+    'Robinson', 'IL', '62454',
+    'HuanYan71385@gmail.com',
+    '202-913-1259');
+INSERT INTO Client VALUES (
+    'C22', 'Yamada', 'Ichiro',
+    '4744 Sesame Terrace',
+    'Altamont', 'NY', '12009',
+    'IcYamad86481@verizon.net',
+    '513-769-1170');
+INSERT INTO Client VALUES (
+    'C23', 'Mitchell', 'Dorothy',
+    '2322 Lloyd Boulevard',
+    'Twilight', 'WV', '25204',
+    'DMitche46843@yahoo.com',
+    '585-470-2693');
+INSERT INTO Client VALUES (
+    'C24', 'Sasaki', 'Hiroshi',
+    '7274 Brial Boulevard',
+    'Bloomingdale', 'IL', '60108',
+    'HiSasak57395@verizon.net',
+    '598-906-1801');
+INSERT INTO Client VALUES (
+    'C25', 'Luo', 'Chan',
+    '4960 Maverick Place',
+    'Marsteller', 'PA', '15760',
+    'CLu65671@hotmail.com',
+    '443-902-8955');
+INSERT INTO Client VALUES (
+    'C26', 'Abdul', 'Cala',
+    '9577 Cotoneaster Boulevard',
+    'Glenwood Springs', 'CO', '81601',
+    'CalAbdul53737@mail.com',
+    '457-470-4036');
+INSERT INTO Client VALUES (
+    'C27', 'Banerjee', 'Prachi',
+    '8988 Grover Drive',
+    'Fox', 'OK', '73435',
+    'PraBan86564@ymail.com',
+    '933-666-1560');
+INSERT INTO Client VALUES (
+    'C28', 'Hayashi', 'Tadashi',
+    '937 Bolin Drive',
+    'Clarksburg', 'WV', '26301',
+    'TadasHa14074@hotmail.com',
+    '902-974-7282');
+INSERT INTO Client VALUES (
+    'C29', 'Tanaka', 'Takashi',
+    '5178 Bitterroot Boulevard',
+    'Ida', 'AR', '72546',
+    'TakasT29689@aol.com',
+    '925-762-4994');
+INSERT INTO Client VALUES (
+    'C30', 'Gomez', 'Ana',
+    '4747 Cougar Terrace',
+    'Cataract', 'WI', '54620',
+    'AnGomez64000@verizon.net',
+    '514-209-5828');
+INSERT INTO Client VALUES (
+    'C31', 'Pawar', 'Rajesh',
+    '7371 Peck Road',
+    'Whitmore Lake', 'MI', '48189',
+    'RPawar86807@verizon.net',
+    '581-315-1633');
+INSERT INTO Client VALUES (
+    'C32', 'Azzi', 'Majida',
+    '3446 Dorian Place',
+    'Portland', 'ME', '04104',
+    'MaAzz48845@ymail.com',
+    '397-778-3253');
+INSERT INTO Client VALUES (
+    'C33', 'Flores', 'Soranlly',
+    '5969 Cicardo Road',
+    'Toluca Lake', 'CA', '91610',
+    'SoranllyFlo18324@yahoo.com',
+    '576-818-8180');
+INSERT INTO Client VALUES (
+    'C34', 'Dallah', 'Lina',
+    '7415 Cambridge Street',
+    'Farmington', 'MO', '63640',
+    'LinDal21113@ymail.com',
+    '447-365-8688');
+INSERT INTO Client VALUES (
+    'C35', 'Hamieh', 'Messina',
+    '5064 Erin Highway',
+    'Dpo', 'AE', '09758',
+    'MesHam57742@aol.com',
+    '536-467-6518');
+INSERT INTO Client VALUES (
+    'C36', 'Cho', 'Yong',
+    '8705 Vorakem Circle',
+    'Fort Eustis', 'VA', '23604',
+    'YonCh50635@hotmail.com',
+    '609-761-2161');
+INSERT INTO Client VALUES (
+    'C37', 'Harrah', 'Brian',
+    '5796 Middlerock Street',
+    'Pierre', 'SD', '57501',
+    'BriHarra66762@gmail.com',
+    '324-686-4840');
+INSERT INTO Client VALUES (
+    'C38', 'Mueller', 'David',
+    '9875 Kadow Circle',
+    'New Bern', 'NC', '28562',
+    'DMueller28022@ymail.com',
+    '852-390-3863');
+INSERT INTO Client VALUES (
+    'C39', 'Allen', 'Brian',
+    '200 Kalka Lane',
+    'Jacksonville', 'FL', '32099',
+    'BrianA24359@live.com',
+    '357-993-8923');
+INSERT INTO Client VALUES (
+    'C40', 'Hwang', 'Yeo',
+    '6565 Myrtle Road',
+    'Barhamsville', 'VA', '23011',
+    'YeHwan44567@ymail.com',
+    '943-684-1571');
+INSERT INTO Client VALUES (
+    'C41', 'Smith', 'Anthony',
+    '8064 Bloomfield Way',
+    'Saint Charles', 'MI', '48655',
+    'AnthSmi10991@yahoo.com',
+    '875-629-7449');

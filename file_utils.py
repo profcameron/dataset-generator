@@ -29,9 +29,12 @@ def check_output_file(file_name: str) -> bool:
                 print("Renaming existing file to SQLFile.old")
                 os.rename(file_name,"SQLfile.old")
         else:
+            # User did not pick a valid option
             result = False
+    else:
+        result = True
         
-        return result
+    return result
     
 def load_names(file_name: str) -> tuple:
     """
