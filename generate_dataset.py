@@ -52,12 +52,11 @@ def main():
     }
     
     for check_file in input_file_names.values():
-        print(check_file)
         if not os.path.exists(check_file):
-            print("File not found: " + check_file)
+            print(f"File not found: {check_file}.")
             sys.exit()
 
-    print("All required data files present")
+    print("All required data files present.")
 
     output_file_name = "output_dataset.sql"
 
@@ -65,7 +64,7 @@ def main():
         # Open SQLfile.sql to store script
         output_file = open(output_file_name, "w")
     else:
-        print("Exiting program, please remove or rename ",output_file_name,".")
+        print(f"Exiting program, please remove or rename {output_file_name}.")
         sys.exit()
 
     file_utils.load_zip_file(input_file_names["zip"], city, state, zip)

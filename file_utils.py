@@ -17,17 +17,12 @@ def check_output_file(file_name: str) -> bool:
         result = True
         remove_file = input("Output file is already here. Delete (D), Rename (R), or Quit (Q): ")
         if remove_file.upper() == "D":
-            print("Deleting existing",file_name)
+            print(f"Deleting existing {file_name}.")
             os.remove(file_name)
         elif remove_file.upper() == "R":
-            rename_file_present = os.path.exists("SQLFile.old")
-            if rename_file_present:
-                rename_file_name = input("Enter file name: ")
-                os.rename(file_name,rename_file_name)
-                print("Renaming existing file to",rename_file_name)
-            else:
-                print("Renaming existing file to SQLFile.old")
-                os.rename(file_name,"SQLfile.old")
+            user_filename = input("Enter file name: ")
+            os.rename(file_name,user_filename)
+            print(f"Renaming existing file to {user_filename}.")
         else:
             # User did not pick a valid option
             result = False
@@ -58,9 +53,6 @@ def load_names(file_name: str) -> tuple:
         arabic = []
         spanish = []
         american = []
-
-        # split out the file name from the extension, use it to print what we are parsing
-        print(f"Loading and parsing {file_name.split('.')[0]} names data set...")
 
         # bring in data from name dataset
         # Need to rstrip() to remove carriage return
@@ -112,8 +104,7 @@ def load_zip_file(file_name: str, city: list, state: list, zip: list):
     """
     in_zip = open(file_name,"r")
 
-    print("Loading and parsing ZIP code data set...")
-    # bring in data from USPS ZIP database
+    # bring in data from USPS ZIP database in CSV
     # In the format 07013,Clifton,NJ
     # ZIP,City,State
     # Need to rstrip() state to remove carriage return

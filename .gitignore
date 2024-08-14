@@ -1,4 +1,5 @@
 # Output file from this program
+*.sql
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
