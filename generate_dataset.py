@@ -80,7 +80,7 @@ def main():
 
     len_clients = len(str(num_clients))
 
-    output_start = data_generator.generate_data_file_start(len_clients)
+    output_start = data_generator.generate_client_table(len_clients)
     output_file.write(output_start)
 
     # TODO: pad the clientNumber with leading 0?

@@ -1,7 +1,7 @@
 import datetime
 import random
 
-def generate_data_file_start(size: int) -> str:
+def generate_client_table(size: int) -> str:
     """
     Generate the start of a data file, including the date/time, 
     and the CREATE TABLE statement.
@@ -40,6 +40,7 @@ def generate_data_file_start(size: int) -> str:
 def generate_email(first_name: str, last_name: str) -> str:
     """
     Generate a random email address.
+    faker library could be used here, but I wanted to do my own implementation
 
     Args:
         first_ame (str): The first name.
@@ -50,11 +51,22 @@ def generate_email(first_name: str, last_name: str) -> str:
     """
     mail_servers = ["yahoo.com","gmail.com","hotmail.com","gmail.com","live.com","mail.com","aol.com","ymail.com","zohomail.com","optonline.net","verizon.net"]
 
+    # Take a random segment of the first name to generate a fake email address
     first_len = random.randint(1,len(first_name))
-    last_len = random.randint(1,len(last_name))
+    email_first_part = first_name[:first_len]
 
-    # Generate an email consisting of a random amount of characters in the first and last name, followed by a number, followed by a domain    
-    email = f"{first_name[:first_len]}{last_name[:last_len]}{random.randint(10000, 99999)}@{random.choice(mail_servers)}"
+    # Take a random segment of the last name to generate a fake email address
+    last_len = random.randint(1,len(last_name))
+    email_second_part = first_name[:last_len]
+
+    # Generate a random number to pad at the end of the username
+    random_email_padding = random.randint(10000, 99999)
+
+    # Choose a domain name from the mail servers list
+    domain = random.choice(mail_servers)
+
+    # Generate an email consisting of a random amount of characters in the first and last name, followed by a number, followed by a domain
+    email = f"{email_first_part}{email_second_part}{random_email_padding}@{domain}"
     
     return email
 
@@ -69,7 +81,14 @@ def generate_id(id_size: int, value: int) -> str:
     Returns:
         str: A client ID with a fixed size, prefixed with 'C'.
     """
+
+    # Take the id and pad the extra characters with 0
+    # Calculates this using the id_size (length of the id field)
     id = str(value).zfill(id_size)
+
+    # Prepend the letter C before the ID
+    # In case there are multiple tables, this will make it more obvious this
+    # value is associated with a customer
     id = 'C' + id
 
     return id
@@ -77,12 +96,17 @@ def generate_id(id_size: int, value: int) -> str:
 def generate_phone() -> str:
     """
     Generate a random phone number in the format XXX-XXX-XXXX.
+    faker library could also be used here for more realistic results
 
     Returns:
         str: A random phone number.
     """
 
-    return str(random.randint(200,999))+"-"+str(random.randint(200,999))+"-"+str(random.randint(1000,9999))
+    area_code = random.randint(200,999)
+    exchange_code = random.randint(200, 999)
+    line_number = random.randint(1000, 9999)
+    
+    return f"{area_code}-{exchange_code}-{line_number}"
 
 def generate_record(key: str, last: str, first: str, street_num: str, street_name: str, street_type: str, city: str, state: str, zip: str) -> str:
     """
